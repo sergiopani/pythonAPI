@@ -1,7 +1,5 @@
 #Tell python that we want to be able to flask
-from distutils.log import error
-from json import JSONDecodeError
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,render_template
 #__name__ tells an unic name 
 app = Flask(__name__)
 
@@ -17,6 +15,9 @@ stores = [
         ]
     }
 ]
+@app.route('/')
+def home():
+    return render_template('index.html')
 #Tell our app what request its going to undertand??
 
 #POST -> Used to recieve deta
